@@ -1,0 +1,19 @@
+
+<div class="row mt-1">
+    <div class="col-9 borber-line">
+        <div class="text-center mt-2">
+            Stores
+        </div>
+        <div class="d-flex flex-row m-3 flex-wrap">
+            <div *ngFor="let store of storesArray">
+                <app-store-item [store]="store"></app-store-item>
+            </div>
+        </div>
+    </div>
+    <div class="col-3 add-store">
+        <div class="float-end">New store</div>
+        <div class="add-item">
+            <app-add-store [products]="products" (addStoreEvent)="setStore($event)"></app-add-store>
+        </div>
+    </div>
+</div>

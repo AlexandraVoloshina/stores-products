@@ -1,0 +1,42 @@
+<div>
+    <div class="input-group has-validation">
+      <input type="text" #storeName class="form-control" placeholder="Name...">
+      <span *ngIf="invalidName" class="invalid-name">
+        Min 3 characters.
+      </span>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+        <label class="form-check-label" for="flexCheckChecked">
+          Store has inventory
+        </label>
+    </div>
+    <div>
+        <div class="row p-2">
+            <div class="col-8 m-0">
+                <select class="form-select" (change)="onSelected($event)">
+                    <option *ngFor="let product of products">{{product.name}}</option>
+                </select>
+            </div>
+            <div class="col-2 pad-left-0">
+                <input type="number" class="form-control item-amount" #amount [value]="0" (input)="getInputValue(amount.value)">
+            </div>
+            <div class="col-2 pad-left-0">
+                <button 
+                class="btn btn-success" 
+                (click)="addProduct()"
+                >+</button>
+            </div>
+        </div>
+        <div>
+            <ng-template #viewContainerRef></ng-template>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8 mt-2">
+            <button class="btn btn-success btn-save" (click)="save(storeName.value); storeName.value=''">Save</button>
+        </div>
+        <div class="col-4">
+        </div>
+    </div>
+  </div>
